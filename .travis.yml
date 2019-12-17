@@ -1,0 +1,14 @@
+language: python
+python:
+    - "3.6"
+
+service:
+    - docker
+
+before_script: pip install docker-compose
+
+# Add Flake8 linting support
+script:
+    - docker-compose run app sh -c "python3 manage.py test && flake8"
+
+
